@@ -10,7 +10,7 @@ function TaskCard({ task, onClick = () => null }) {
   };
 
   return (
-    <div className="p-8 border border-gray-300 rounded-2xl">
+    <div className="p-8 border border-gray-300 rounded-2xl flex flex-col">
       <div className="mb-2">
         <h3 className="font-bold text-xl">{task.title}</h3>
       </div>
@@ -19,7 +19,7 @@ function TaskCard({ task, onClick = () => null }) {
         <div className="text-gray-500">{task.description}</div>
       </div>
 
-      <div className="flex justify-end gap-1">
+      <div className="flex justify-end gap-1 mt-auto">
         <Button onClick={onClick} title="Editar">
           <PencilIcon className="size-4" />
         </Button>
