@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Revisar correos electrónicos",
+    "description": "Dedicar 30 minutos para revisar y responder correos importantes.",
+    "status": "Pendiente"
+  },
+  {
+    "id": 2,
+    "title": "Planificar reunión semanal",
+    "description": "Organizar la agenda y enviar invitaciones para la reunión del equipo.",
+    "status": "En proceso"
+  },
+  {
+    "id": 3,
+    "title": "Actualizar documentación del proyecto",
+    "description": "Revisar y actualizar los documentos técnicos y de usuario.",
+    "status": "Pendiente"
+  },
+  {
+    "id": 4,
+    "title": "Realizar pruebas de integración",
+    "description": "Ejecutar pruebas para asegurar el correcto funcionamiento de las nuevas funcionalidades.",
+    "status": "En proceso"
+  },
+  {
+    "id": 5,
+    "title": "Analizar feedback de clientes",
+    "description": "Revisar encuestas de satisfacción y compilar sugerencias para mejoras.",
+    "status": "Completada"
+  },
+  {
+    "id": 6,
+    "title": "Desarrollar prototipo de nueva función",
+    "description": "Crear un prototipo funcional para validar la nueva característica solicitada.",
+    "status": "En proceso"
+  },
+  {
+    "id": 7,
+    "title": "Actualizar base de datos",
+    "description": "Realizar mantenimiento y optimización en la base de datos.",
+    "status": "Pendiente"
+  },
+  {
+    "id": 8,
+    "title": "Investigar tendencias de mercado",
+    "description": "Recopilar información actual sobre tendencias en la industria para futuros proyectos.",
+    "status": "Completada"
+  },
+  {
+    "id": 9,
+    "title": "Organizar archivos del proyecto",
+    "description": "Reestructurar y organizar documentos y recursos en el sistema.",
+    "status": "Pendiente"
+  },
+  {
+    "id": 10,
+    "title": "Revisión final de la entrega",
+    "description": "Verificar la calidad y realizar ajustes finales antes de entregar el proyecto.",
+    "status": "En proceso"
+  }
+]
