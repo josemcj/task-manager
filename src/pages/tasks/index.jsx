@@ -1,14 +1,31 @@
-import tasks from '@/data/tasks.json';
+import { useState } from 'react';
+// import { useSelector, useDispatch } from 'react-redux';
+import { useTasks } from 'hooks/useTasks';
 import Card from 'components/Card';
+import TaskForm from './components/TaskForm';
 
 function Tasks() {
-  console.log(tasks);
+  const tasks = useTasks();
+  const [taskToEdit, setTaskToEdit] = useState(null);
+
+  const handleEdit = (item) => {
+    setTaskToEdit(item);
+  };
+
   return (
-    <div className="container mx-auto">
-      <div className="grid grid-cols-3 gap-4">
-        {tasks.length > 0
-          ? tasks.map((task) => <Card key={task.key} title={task.title} description={task.description} />)
-          : 'No hay tareas'}
+    <div className="flex flex-col min-h-screen">
+      <div className="container mx-auto">
+        <TaskForm taskToEdit={taskToEdit} />
+
+        {tasks.all().length > 0 ? (
+          <div className="grid grid-cols-3 gap-4">
+            {tasks.all().map((task) => (
+              <Card key={task.id} title={task.title} description={task.description} onClick={() => handleEdit(task)} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-gray-400 flex justify-center size-full">No hay tareas</div>
+        )}
       </div>
     </div>
   );
