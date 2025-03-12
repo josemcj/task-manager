@@ -9,6 +9,7 @@ export default defineConfig({
     alias: {
       '@': '/src',
       components: '/src/components',
+      hooks: '/src/hooks',
     },
   },
 });
