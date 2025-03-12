@@ -1,33 +1,59 @@
 import { useState } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
 import { useTasks } from 'hooks/useTasks';
-import Card from 'components/Card';
-import TaskForm from './components/TaskForm';
+import { PlusIcon } from '@heroicons/react/24/solid';
+import Button from 'components/Button';
+import TaskModal from './components/TaskModal';
+import TaskCard from './components/TaskCard';
 
 function Tasks() {
   const tasks = useTasks();
+  const [showTaskModal, setShowTaskModal] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState(null);
+
+  const onCloseTaskModal = () => {
+    setShowTaskModal(false);
+    setTaskToEdit(null);
+  };
 
   const handleEdit = (item) => {
     setTaskToEdit(item);
+    setShowTaskModal(true);
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <>
+      <TaskModal
+        open={showTaskModal}
+        onClose={onCloseTaskModal}
+        taskToEdit={taskToEdit}
+        setTaskToEdit={setTaskToEdit}
+      />
+
       <div className="container mx-auto">
-        <TaskForm taskToEdit={taskToEdit} />
+        <div className="flex justify-between">
+          <h1 className="font-bold text-4xl">Mis tareas</h1>
+
+          <Button onClick={() => setShowTaskModal(true)}>
+            <div className="flex items-center gap-2">
+              <PlusIcon className="size-4" />
+              Agregar tarea
+            </div>
+          </Button>
+        </div>
 
         {tasks.all().length > 0 ? (
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-4 my-5">
             {tasks.all().map((task) => (
-              <Card key={task.id} title={task.title} description={task.description} onClick={() => handleEdit(task)} />
+              <TaskCard key={task.id} task={task} onClick={() => handleEdit(task)} />
             ))}
           </div>
         ) : (
-          <div className="text-gray-400 flex justify-center size-full">No hay tareas</div>
+          <div className="text-gray-500 flex justify-center items-center size-full p-18 font-bold text-lg">
+            No hay tareas
+          </div>
         )}
       </div>
-    </div>
+    </>
   );
 }
 
