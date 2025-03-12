@@ -1,7 +1,6 @@
 import { useState } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
 import { useTasks } from 'hooks/useTasks';
-import Card from 'components/Card';
+import TaskCard from './components/TaskCard';
 import TaskForm from './components/TaskForm';
 
 function Tasks() {
@@ -15,12 +14,12 @@ function Tasks() {
   return (
     <div className="flex flex-col min-h-screen">
       <div className="container mx-auto">
-        <TaskForm taskToEdit={taskToEdit} />
+        {/* <TaskForm taskToEdit={taskToEdit} /> */}
 
         {tasks.all().length > 0 ? (
           <div className="grid grid-cols-3 gap-4">
             {tasks.all().map((task) => (
-              <Card key={task.id} title={task.title} description={task.description} onClick={() => handleEdit(task)} />
+              <TaskCard key={task.id} task={task} onClick={() => handleEdit(task)} />
             ))}
           </div>
         ) : (
