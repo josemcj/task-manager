@@ -21,7 +21,7 @@ function Tasks() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <>
       <TaskModal
         open={showTaskModal}
         onClose={onCloseTaskModal}
@@ -36,7 +36,7 @@ function Tasks() {
           <Button onClick={() => setShowTaskModal(true)}>
             <div className="flex items-center gap-2">
               <PlusIcon className="size-4" />
-              Agregar nueva tarea
+              Agregar tarea
             </div>
           </Button>
         </div>
@@ -48,10 +48,12 @@ function Tasks() {
             ))}
           </div>
         ) : (
-          <div className="text-gray-400 flex justify-center size-full">No hay tareas</div>
+          <div className="text-gray-500 flex justify-center items-center size-full p-18 font-bold text-lg">
+            No hay tareas
+          </div>
         )}
       </div>
-    </div>
+    </>
   );
 }
 

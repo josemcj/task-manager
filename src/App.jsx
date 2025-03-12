@@ -1,7 +1,11 @@
 import TasksPage from '@/pages/tasks';
 
 function App() {
-  return <TasksPage />;
+  return (
+    <main className="py-6">
+      <TasksPage />
+    </main>
+  );
 }
 
 export default App;
