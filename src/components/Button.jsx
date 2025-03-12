@@ -8,7 +8,7 @@ function Button({ children, variant = 'primary', type = 'button', title = '', on
   return (
     <button
       type={type}
-      className={`${BUTTON_VARIANTS[variant]} p-3 text-white rounded-xl cursor-pointer`}
+      className={`${BUTTON_VARIANTS[variant]} p-3 text-white rounded-xl cursor-pointer font-medium`}
       title={title}
       onClick={onClick}>
       {children}

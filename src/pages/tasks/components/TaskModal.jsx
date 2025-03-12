@@ -32,15 +32,19 @@ function TaskModal({ open, onClose, taskToEdit }) {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    tasks.save(task);
+  const handleCloseModal = () => {
     resetForm();
     onClose();
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    tasks.save(task);
+    handleCloseModal();
+  };
+
   return (
-    <Modal title={`${taskToEdit ? 'Editar' : 'Agregar'} tarea`} open={open} onClose={onClose}>
+    <Modal title={`${taskToEdit ? 'Editar' : 'Agregar'} tarea`} open={open} onClose={handleCloseModal}>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="name" className="block mb-2 font-medium text-gray-900">
