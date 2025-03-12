@@ -2,8 +2,15 @@ const BUTTON_VARIANTS = {
   primary: 'bg-indigo-400',
 };
 
-function ButtonPrimary({ children, variant = 'primary' }) {
-  return <button className={`${BUTTON_VARIANTS[variant]} p-3 text-white rounded-xl cursor-pointer`}>{children}</button>;
+function Button({ children, variant = 'primary', type = 'button', onClick = () => null }) {
+  return (
+    <button
+      type={type}
+      className={`${BUTTON_VARIANTS[variant]} p-3 text-white rounded-xl cursor-pointer`}
+      onClick={onClick}>
+      {children}
+    </button>
+  );
 }
 
-export default ButtonPrimary;
+export default Button;

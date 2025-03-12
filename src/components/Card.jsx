@@ -1,6 +1,6 @@
 import Button from './Button';
 
-function Card({ title, description }) {
+function Card({ title, description, onClick = () => null }) {
   return (
     <div className="p-8 border border-gray-300 rounded-2xl">
       <div className="mb-2">
@@ -12,7 +12,7 @@ function Card({ title, description }) {
       </div>
 
       <div className="flex justify-end">
-        <Button>Leer más</Button>
+        <Button onClick={onClick}>Editar</Button>
       </div>
     </div>
   );
