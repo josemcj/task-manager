@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { addTask, updateTask } from '@/pages/tasks/redux/taskSlice';
+import { addTask, updateTask, deleteTask } from '@/pages/tasks/redux/taskSlice';
 
 export function useTasks() {
   const dispatch = useDispatch();
@@ -30,5 +30,9 @@ export function useTasks() {
     dispatch(updateTask(task));
   }
 
-  return { all, save };
+  function deleteById(id) {
+    dispatch(deleteTask(id));
+  }
+
+  return { all, save, deleteById };
 }
