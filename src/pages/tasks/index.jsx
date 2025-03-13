@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useTasks } from 'hooks/useTasks';
 import { PlusIcon } from '@heroicons/react/24/solid';
 import { ClipboardDocumentCheckIcon } from '@heroicons/react/24/solid';
+import { AnimatePresence } from 'motion/react';
+import * as motion from 'motion/react-client';
 import Button from 'components/Button';
 import TaskModal from './components/TaskModal';
 import TaskCard from './components/TaskCard';
@@ -46,15 +48,25 @@ function TasksPage() {
         </div>
 
         {tasks.all().length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-8">
-            {tasks.all().map((task) => (
-              <TaskCard key={task.id} task={task} onClick={() => handleEdit(task)} />
-            ))}
-          </div>
+          <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-8">
+            <AnimatePresence>
+              {tasks.all().map((task) => (
+                <TaskCard key={task.id} task={task} onClick={() => handleEdit(task)} />
+              ))}
+            </AnimatePresence>
+          </motion.div>
         ) : (
-          <div className="text-gray-500 flex justify-center items-center size-full p-18 font-bold text-lg">
-            No hay tareas
-          </div>
+          <AnimatePresence>
+            <motion.div
+              key="no-tasks"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+              className="text-gray-500 flex justify-center items-center size-full p-18 font-bold text-lg">
+              No hay tareas
+            </motion.div>
+          </AnimatePresence>
         )}
       </div>
     </>
