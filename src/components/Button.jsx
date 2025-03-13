@@ -2,6 +2,8 @@ function Button({ children, variant = 'primary', type = 'button', title = '', on
   const BUTTON_VARIANTS = {
     primary: 'btn-primary',
     danger: 'btn-danger',
+    outlineDanger: 'btn-outline-danger',
+    outlineSecondary: 'btn-outline-secondary',
   };
 
   return (
