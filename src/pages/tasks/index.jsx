@@ -6,7 +6,7 @@ import Button from 'components/Button';
 import TaskModal from './components/TaskModal';
 import TaskCard from './components/TaskCard';
 
-function Tasks() {
+function TasksPage() {
   const tasks = useTasks();
   const [showTaskModal, setShowTaskModal] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState(null);
@@ -61,4 +61,4 @@ function Tasks() {
   );
 }
 
-export default Tasks;
+export default TasksPage;

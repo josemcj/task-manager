@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid';
 import { useTasks } from 'hooks/useTasks';
-import taskStatuses from '@/data/taskStatuses.json';
+import { useTaskStatuses } from 'hooks/useTaskStatuses';
 import Badge from 'components/Badge';
 import Button from 'components/Button';
 
 function TaskCard({ task, onClick }) {
   const tasks = useTasks();
+  const taskStatuses = useTaskStatuses();
   const [statusText, setStatusText] = useState('');
 
   const BADGE_TYPES = {
@@ -20,7 +21,7 @@ function TaskCard({ task, onClick }) {
   };
 
   useEffect(() => {
-    const { name } = taskStatuses.find((status) => status.id == task.status);
+    const { name } = taskStatuses.all().find((status) => status.id == task.status);
     setStatusText(name);
   }, [task]);
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTasks } from 'hooks/useTasks';
-import taskStatuses from '@/data/taskStatuses.json';
+import { useTaskStatuses } from 'hooks/useTaskStatuses';
 import Button from 'components/Button';
 import Modal from 'components/Modal';
 
@@ -13,6 +13,7 @@ const STYLES = {
 
 function TaskModal({ open, onClose, taskToEdit }) {
   const tasks = useTasks();
+  const taskStatuses = useTaskStatuses();
 
   const [task, setTask] = useState({
     title: '',
@@ -87,7 +88,7 @@ function TaskModal({ open, onClose, taskToEdit }) {
             <option value="" disabled>
               Seleccionar
             </option>
-            {taskStatuses.map((status) => (
+            {taskStatuses.all().map((status) => (
               <option key={status.id} value={status.id}>
                 {status.name}
               </option>
