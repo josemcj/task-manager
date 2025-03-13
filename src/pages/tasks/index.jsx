@@ -7,11 +7,14 @@ import * as motion from 'motion/react-client';
 import Button from 'components/Button';
 import TaskModal from './components/TaskModal';
 import TaskCard from './components/TaskCard';
+import ConfirmDelete from './components/ConfirmDelete';
 
 function TasksPage() {
   const tasks = useTasks();
   const [showTaskModal, setShowTaskModal] = useState(false);
+  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState(null);
+  const [taskToDelete, setTaskToDelete] = useState('');
 
   const onCloseTaskModal = () => {
     setShowTaskModal(false);
@@ -23,6 +26,22 @@ function TasksPage() {
     setShowTaskModal(true);
   };
 
+  const handleDelete = () => {
+    tasks.deleteById(taskToDelete);
+    setShowConfirmDelete(false);
+    setTaskToDelete('');
+  };
+
+  const handleConfirmDelete = (id) => {
+    setShowConfirmDelete(true);
+    setTaskToDelete(id);
+  };
+
+  const handleCancelDelete = () => {
+    setShowConfirmDelete(false);
+    setTaskToDelete('');
+  };
+
   return (
     <>
       <TaskModal
@@ -31,6 +50,8 @@ function TasksPage() {
         taskToEdit={taskToEdit}
         setTaskToEdit={setTaskToEdit}
       />
+
+      <ConfirmDelete open={showConfirmDelete} onClose={handleCancelDelete} onConfirm={handleDelete} />
 
       <div className="container mx-auto">
         <div className="flex justify-between">
@@ -49,10 +70,15 @@ function TasksPage() {
 
         <AnimatePresence mode="popLayout">
           {tasks.all().length > 0 ? (
-            <div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-8">
               <AnimatePresence>
                 {tasks.all().map((task) => (
-                  <TaskCard key={task.id} task={task} onClick={() => handleEdit(task)} />
+                  <TaskCard
+                    key={task.id}
+                    task={task}
+                    onEdit={() => handleEdit(task)}
+                    onDelete={() => handleConfirmDelete(task.id)}
+                  />
                 ))}
               </AnimatePresence>
             </div>

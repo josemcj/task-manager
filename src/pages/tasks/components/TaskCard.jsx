@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid';
-import { useTasks } from 'hooks/useTasks';
 import { useTaskStatuses } from 'hooks/useTaskStatuses';
 import * as motion from 'motion/react-client';
 import Badge from 'components/Badge';
 import Button from 'components/Button';
 
-function TaskCard({ task, onClick }) {
-  const tasks = useTasks();
+function TaskCard({ task, onEdit, onDelete }) {
   const taskStatuses = useTaskStatuses();
   const [statusText, setStatusText] = useState('');
 
@@ -15,10 +13,6 @@ function TaskCard({ task, onClick }) {
     1: 'secondary',
     2: 'warning',
     3: 'success',
-  };
-
-  const handleDelete = (id) => {
-    tasks.deleteById(id);
   };
 
   useEffect(() => {
@@ -44,11 +38,11 @@ function TaskCard({ task, onClick }) {
       </div>
 
       <div className="flex justify-end gap-1 mt-auto">
-        <Button onClick={onClick} title="Editar">
+        <Button onClick={onEdit} title="Editar">
           <PencilIcon className="size-4" />
         </Button>
 
-        <Button onClick={() => handleDelete(task.id)} title="Eliminar" variant="danger">
+        <Button onClick={onDelete} title="Eliminar" variant="outlineDanger">
           <TrashIcon className="size-4" />
         </Button>
       </div>
