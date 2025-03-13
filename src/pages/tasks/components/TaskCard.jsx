@@ -10,13 +10,13 @@ function TaskCard({ task, onClick }) {
   };
 
   return (
-    <div className="p-8 border border-gray-300 rounded-2xl flex flex-col">
+    <div className="p-8 border border-gray-300 dark:border-gray-700 rounded-2xl flex flex-col dark:bg-gray-800">
       <div className="mb-2">
-        <h3 className="font-bold text-xl">{task.title}</h3>
+        <h3 className="font-bold text-xl dark:text-gray-100">{task.title}</h3>
       </div>
 
       <div className="mb-3">
-        <div className="text-gray-500">{task.description}</div>
+        <div className="text-gray-500 dark:text-gray-300">{task.description}</div>
       </div>
 
       <div className="flex justify-end gap-1 mt-auto">

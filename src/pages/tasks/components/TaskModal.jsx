@@ -6,9 +6,9 @@ import Modal from 'components/Modal';
 
 const STYLES = {
   input:
-    'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 focus:outline-hidden block w-full p-2.5',
+    'bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-lg focus:ring-blue-500 focus:border-blue-500 focus:outline-hidden block w-full p-2.5',
   select:
-    'bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 focus:outline-hidden block w-full p-2.5',
+    'bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-lg focus:ring-blue-500 focus:border-blue-500 focus:outline-hidden block w-full p-2.5',
 };
 
 function TaskModal({ open, onClose, taskToEdit }) {
@@ -47,7 +47,7 @@ function TaskModal({ open, onClose, taskToEdit }) {
     <Modal title={`${taskToEdit ? 'Editar' : 'Agregar'} tarea`} open={open} onClose={handleCloseModal}>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label htmlFor="name" className="block mb-2 font-medium text-gray-900">
+          <label htmlFor="name" className="block mb-2 font-medium text-gray-900 dark:text-gray-100">
             Nombre
           </label>
           <input
@@ -62,7 +62,7 @@ function TaskModal({ open, onClose, taskToEdit }) {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="description" className="block mb-2 font-medium text-gray-900">
+          <label htmlFor="description" className="block mb-2 font-medium text-gray-900 dark:text-gray-100">
             Descripción
           </label>
           <textarea
@@ -76,7 +76,7 @@ function TaskModal({ open, onClose, taskToEdit }) {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="status" className="block mb-2 font-medium text-gray-900">
+          <label htmlFor="status" className="block mb-2 font-medium text-gray-900 dark:text-gray-100">
             Selecciona el estado
           </label>
           <select
@@ -87,7 +87,6 @@ function TaskModal({ open, onClose, taskToEdit }) {
             <option value="" disabled>
               Seleccionar
             </option>
-
             {taskStatuses.map((status) => (
               <option key={status.id} value={status.id}>
                 {status.name}
