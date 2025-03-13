@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { useTasks } from 'hooks/useTasks';
 import { PlusIcon } from '@heroicons/react/24/solid';
+import { ClipboardDocumentCheckIcon } from '@heroicons/react/24/solid';
 import Button from 'components/Button';
 import TaskModal from './components/TaskModal';
 import TaskCard from './components/TaskCard';
 
-function Tasks() {
+function TasksPage() {
   const tasks = useTasks();
   const [showTaskModal, setShowTaskModal] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState(null);
@@ -31,7 +32,10 @@ function Tasks() {
 
       <div className="container mx-auto">
         <div className="flex justify-between">
-          <h1 className="font-bold text-4xl text-gray-900 dark:text-gray-100">Mis tareas</h1>
+          <div className="flex gap-2 items-center">
+            <ClipboardDocumentCheckIcon className="size-8 dark:text-white" />
+            <h1 className="font-bold text-4xl text-gray-900 dark:text-gray-100">Mis tareas</h1>
+          </div>
 
           <Button onClick={() => setShowTaskModal(true)}>
             <div className="flex items-center gap-2">
@@ -57,4 +61,4 @@ function Tasks() {
   );
 }
 
-export default Tasks;
+export default TasksPage;
