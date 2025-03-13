@@ -80,7 +80,7 @@ Dentro de la carpeta `src` del proyecto tenemos la siguient estructura:
 
 ## 🎨 Decisiones de diseño
 
-El diseño lo basé en una estética modena y accesible para el usuario, con bordes redondeados que transmiten amabilidad. Adapté los matices de color para garantizar un contraste adecuado tanto en el modo oscuro como en el modo claro.
+El diseño lo basé en una estética moderna y accesible para el usuario, con bordes redondeados que transmiten amabilidad. Adapté los matices de color para garantizar un contraste adecuado tanto en el modo oscuro como en el modo claro.
 
 Para facilitar la visualización, las tareas se presentan en tarjetas (cards), lo que permite a los usuarios ver rápidamente la información esencial de cada una, así como todas las tareas existentes. Además, se implementaron badges de colores (gris para 'Pendiente', amarillo para 'En proceso' y verde para 'Completado'), de modo que el estado de cada tarea sea identificable de un vistazo.
 
