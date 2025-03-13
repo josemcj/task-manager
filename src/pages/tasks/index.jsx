@@ -42,7 +42,7 @@ function Tasks() {
         </div>
 
         {tasks.all().length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-8">
             {tasks.all().map((task) => (
               <TaskCard key={task.id} task={task} onClick={() => handleEdit(task)} />
             ))}

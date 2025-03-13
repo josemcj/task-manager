@@ -6,7 +6,7 @@ function Modal({ title, open, onClose, children }) {
       onClick={onClose}
       className={`${
         open ? 'visible bg-black/20 dark:bg-black/60' : 'invisible'
-      } fixed inset-0 flex justify-center items-center transition-colors`}>
+      } fixed inset-0 flex justify-center items-center transition-colors px-4 md:px-0`}>
       <div
         onClick={(e) => e.stopPropagation()}
         className={`bg-white dark:bg-gray-800 rounded-xl shadow p-6 transition-all w-full md:w-2/3 lg:w-2/5 ${
