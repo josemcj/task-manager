@@ -47,16 +47,16 @@ function TasksPage() {
           </Button>
         </div>
 
-        {tasks.all().length > 0 ? (
-          <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-8">
-            <AnimatePresence>
-              {tasks.all().map((task) => (
-                <TaskCard key={task.id} task={task} onClick={() => handleEdit(task)} />
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        ) : (
-          <AnimatePresence>
+        <AnimatePresence mode="popLayout">
+          {tasks.all().length > 0 ? (
+            <div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-8">
+              <AnimatePresence>
+                {tasks.all().map((task) => (
+                  <TaskCard key={task.id} task={task} onClick={() => handleEdit(task)} />
+                ))}
+              </AnimatePresence>
+            </div>
+          ) : (
             <motion.div
               key="no-tasks"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -66,8 +66,8 @@ function TasksPage() {
               className="text-gray-500 flex justify-center items-center size-full p-18 font-bold text-lg">
               No hay tareas
             </motion.div>
-          </AnimatePresence>
-        )}
+          )}
+        </AnimatePresence>
       </div>
     </>
   );
