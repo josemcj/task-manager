@@ -3,18 +3,18 @@
     "id": 1,
     "title": "Revisar correos electrónicos",
     "description": "Dedicar 30 minutos para revisar y responder correos importantes.",
-    "status": "Pendiente"
+    "status": "1"
   },
   {
     "id": 2,
     "title": "Planificar reunión semanal",
     "description": "Organizar la agenda y enviar invitaciones para la reunión del equipo.",
-    "status": "En proceso"
+    "status": "2"
   },
   {
     "id": 3,
     "title": "Actualizar documentación del proyecto",
     "description": "Revisar y actualizar los documentos técnicos y de usuario.",
-    "status": "Pendiente"
+    "status": "3"
   }
 ]
