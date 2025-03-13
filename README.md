@@ -2,7 +2,7 @@
 
 Esta aplicación permite administrar tareas, ofreciendo un dashboard en donde podemos visualizar nuestras tareas con 3 estados diferentes: pendientes, en proceso y completadas. Podemos crear, editar y eliminar tareas.
 
-La aplicación usa React, Redux (Redux Toolkit), Vite y Tailwind CSS v4.0, implementando un dark mode que se ajusta a la configuración del dispositivo del usuario, además de ser responsive. Todos los datos se almacenan en el estado global de la aplicación.
+La aplicación usa React, Redux (Redux Toolkit), Vite, animaciones con Framer Motion y Tailwind CSS v4.0, implementando un dark mode que se ajusta a la configuración del dispositivo del usuario, además de ser responsive. Todos los datos se almacenan en el estado global de la aplicación.
 
 Prueba la aplicación: https://tmanager-app.netlify.app/
 
