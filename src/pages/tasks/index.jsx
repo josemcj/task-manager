@@ -32,7 +32,7 @@ function TasksPage() {
 
       <div className="container mx-auto">
         <div className="flex justify-between">
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-3 items-center">
             <ClipboardDocumentCheckIcon className="size-8 dark:text-white" />
             <h1 className="font-bold text-4xl text-gray-900 dark:text-gray-100">Mis tareas</h1>
           </div>
