@@ -41,7 +41,7 @@ El proyecto lo diseñé con una estructura que permite crear componentes reutili
 
 Dentro de la carpeta `src` del proyecto tenemos la siguient estructura:
 
-![Estructura de la carpeta src](image.png)
+![Estructura del proyecto](https://github.com/user-attachments/assets/5762ff7e-e1da-4a59-8903-6e9fd85d3aed)
 
 - **app/**
 
