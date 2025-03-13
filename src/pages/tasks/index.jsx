@@ -31,7 +31,7 @@ function Tasks() {
 
       <div className="container mx-auto">
         <div className="flex justify-between">
-          <h1 className="font-bold text-4xl">Mis tareas</h1>
+          <h1 className="font-bold text-4xl text-gray-900 dark:text-gray-100">Mis tareas</h1>
 
           <Button onClick={() => setShowTaskModal(true)}>
             <div className="flex items-center gap-2">
