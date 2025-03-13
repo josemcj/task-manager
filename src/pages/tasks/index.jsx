@@ -36,13 +36,13 @@ function Tasks() {
           <Button onClick={() => setShowTaskModal(true)}>
             <div className="flex items-center gap-2">
               <PlusIcon className="size-4" />
-              Agregar tarea
+              <span className="hidden md:block">Agregar tarea</span>
             </div>
           </Button>
         </div>
 
         {tasks.all().length > 0 ? (
-          <div className="grid grid-cols-3 gap-4 my-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-5">
             {tasks.all().map((task) => (
               <TaskCard key={task.id} task={task} onClick={() => handleEdit(task)} />
             ))}

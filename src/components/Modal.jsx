@@ -9,7 +9,7 @@ function Modal({ title, open, onClose, children }) {
       } fixed inset-0 flex justify-center items-center transition-colors`}>
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`bg-white dark:bg-gray-800 rounded-xl shadow p-6 transition-all w-2/5 ${
+        className={`bg-white dark:bg-gray-800 rounded-xl shadow p-6 transition-all w-full md:w-2/3 lg:w-2/5 ${
           open ? 'scale-100 opacity-100' : 'scale-125 opacity-0'
         }`}>
         <h3 className="font-bold text-2xl dark:text-gray-100">{title}</h3>
