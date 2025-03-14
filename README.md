@@ -27,7 +27,7 @@ npm install
 
 3. **Ejecutar la aplicación en modo desarrollo**
 
-Inicia la aplicación para comenzar a desarrollar:
+Inicia la aplicación:
 
 ```bash
 npm run dev
