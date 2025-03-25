@@ -3,18 +3,42 @@ import { useTasks } from 'hooks/useTasks';
 import { PlusIcon } from '@heroicons/react/24/solid';
 import { ClipboardDocumentCheckIcon } from '@heroicons/react/24/solid';
 import { AnimatePresence } from 'motion/react';
+import ReactPaginate from 'react-paginate';
 import * as motion from 'motion/react-client';
 import Button from 'components/Button';
 import TaskModal from './components/TaskModal';
 import TaskCard from './components/TaskCard';
 import ConfirmDelete from './components/ConfirmDelete';
+import Select from 'components/forms/Select';
 
 function TasksPage() {
   const tasks = useTasks();
+  const [itemOffset, setItemOffset] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(5);
+
   const [showTaskModal, setShowTaskModal] = useState(false);
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState(null);
   const [taskToDelete, setTaskToDelete] = useState('');
+
+  const endOffset = itemOffset + itemsPerPage;
+  const currentItems = tasks.all().slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(tasks.all().length / itemsPerPage);
+
+  const itemsPerPageOptions = [
+    {
+      id: 3,
+      name: 3,
+    },
+    {
+      id: 5,
+      name: 5,
+    },
+    {
+      id: 10,
+      name: 10,
+    },
+  ];
 
   const onCloseTaskModal = () => {
     setShowTaskModal(false);
@@ -40,6 +64,12 @@ function TasksPage() {
   const handleCancelDelete = () => {
     setShowConfirmDelete(false);
     setTaskToDelete('');
+  };
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % tasks.all().length;
+    console.log(`El usuario solicitó el número de página ${event.selected} , que está desplazado ${newOffset} `);
+    setItemOffset(newOffset);
   };
 
   return (
@@ -72,7 +102,7 @@ function TasksPage() {
           {tasks.all().length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-8">
               <AnimatePresence>
-                {tasks.all().map((task) => (
+                {currentItems.map((task) => (
                   <TaskCard
                     key={task.id}
                     task={task}
@@ -94,6 +124,22 @@ function TasksPage() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        <div className="flex">
+          <Select items={itemsPerPageOptions} onChange={(e) => setItemsPerPage(Number(e.target.value))} />
+
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel="siguiente >"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            pageCount={pageCount}
+            previousLabel="< anterior"
+            renderOnZeroPageCount={null}
+            previousClassName="pagination-btn"
+            nextClassName="pagination-btn"
+          />
+        </div>
       </div>
     </>
   );

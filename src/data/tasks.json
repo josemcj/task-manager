@@ -16,5 +16,41 @@
     "title": "Actualizar documentación del proyecto",
     "description": "Revisar y actualizar los documentos técnicos y de usuario.",
     "status": "3"
+  },
+  {
+    "id": 4,
+    "title": "Revisar correos electrónicos",
+    "description": "Dedicar 30 minutos para revisar y responder correos importantes.",
+    "status": "1"
+  },
+  {
+    "id": 5,
+    "title": "Planificar reunión semanal",
+    "description": "Organizar la agenda y enviar invitaciones para la reunión del equipo.",
+    "status": "2"
+  },
+  {
+    "id": 6,
+    "title": "Actualizar documentación del proyecto",
+    "description": "Revisar y actualizar los documentos técnicos y de usuario.",
+    "status": "3"
+  },
+  {
+    "id": 7,
+    "title": "Revisar correos electrónicos",
+    "description": "Dedicar 30 minutos para revisar y responder correos importantes.",
+    "status": "1"
+  },
+  {
+    "id": 8,
+    "title": "Planificar reunión semanal",
+    "description": "Organizar la agenda y enviar invitaciones para la reunión del equipo.",
+    "status": "2"
+  },
+  {
+    "id": 9,
+    "title": "Actualizar documentación del proyecto",
+    "description": "Revisar y actualizar los documentos técnicos y de usuario.",
+    "status": "3"
   }
 ]
